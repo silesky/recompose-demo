@@ -33,5 +33,6 @@ module.exports = {
     'react/prop-types': 0, // we're using flow for type checking.
     'react/no-unused-prop-types': 0, // we're using flow for type checking.
     'react/jsx-filename-extension': 0, // we don't use .jsx extension
+    'react/no-multi-comp': 0,
   },
 };
