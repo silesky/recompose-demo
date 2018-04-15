@@ -3,14 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "cra-babel-extend && react-scripts start",
+    "build": "cra-babel-extend && react-scripts build",
+    "test": "cra-babel-extend && react-scripts test --env=jsdom",
+    "eject": "cra-babel-extend && react-scripts eject"
+  },
+  "craBabelExtend": {
+    "presets": [
+      "es2017"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
+  },
+  "devDependencies": {
+    "babel-preset-es2017": "^6.24.1",
+    "cra-babel-extend": "^1.0.3"
   }
 }
