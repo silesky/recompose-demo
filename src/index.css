@@ -1,5 +1,22 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  width: 100%;
+}
+div {
+  text-align: center;
+}
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+}
+h1 {
+  font-size: 72px;
+  color: green;
+}
+button {
+  font-size: 48px;
+}
+menu a {
+  display: block;
+  text-align: center;
+  padding: 20px 0;
 }

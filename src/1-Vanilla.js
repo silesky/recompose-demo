@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 
-class App extends Component {
+export class App extends Component {
   state = {
     counter: 0,
   };
@@ -17,18 +16,12 @@ class App extends Component {
     );
   }
 }
-const AppHoc = ({ counter, add, name }) => (
-  <div>
-    <h2>{name}</h2>
-    <h1>counter: {counter}</h1>
-    <button onClick={add}>+</button>
-  </div>
-);
+
 /*
 higher order component example
 */
 const withCounterState = (MyComponent) => {
-  return class Wrapped extends Component {
+  return class extends Component {
     state = {
       counter: 0,
     };
@@ -36,15 +29,21 @@ const withCounterState = (MyComponent) => {
     render() {
       return (
         <MyComponent
+          {...this.props}
           counter={this.state.counter}
           add={this.add}
-          {...this.props}
         />
       );
     }
   };
 };
 
-const NewApp = withCounterState(AppHoc);
-const AppWithProps = () => <NewApp name="seth" />;
-export default AppWithProps;
+export const Counter = ({ counter, add, name }) => (
+  <div>
+    <h2>{name}</h2>
+    <h1>counter: {counter}</h1>
+    <button onClick={add}>+</button>
+  </div>
+);
+
+export default withCounterState(Counter);
