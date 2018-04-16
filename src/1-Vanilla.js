@@ -38,12 +38,13 @@ const withCounterState = (MyComponent) => {
   };
 };
 
-export const Counter = ({ counter, add, name }) => (
-  <div>
-    <h2>{name}</h2>
-    <h1>counter: {counter}</h1>
-    <button onClick={add}>+</button>
-  </div>
-);
+export const EnhancedCounter = withCounterState(({ counter, add }) => {
+  return (
+    <div>
+      <h1>counter: {counter}</h1>
+      <button onClick={add}>+</button>
+    </div>
+  );
+});
 
-export default withCounterState(Counter);
+export default EnhancedCounter;
