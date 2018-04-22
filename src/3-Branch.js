@@ -16,9 +16,12 @@ const Counter = ({ counter, add }) => (
 );
 
 const withLoadData = compose(
-  withStateHandlers(({ data = [] }) => ({ data }), {
-    loadData: () => data => ({ data }),
-  }),
+  withStateHandlers(
+    { data: [] },
+    {
+      loadData: () => data => ({ data }),
+    },
+  ),
   // fetch data
   lifecycle({
     componentDidMount() {
