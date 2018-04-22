@@ -4,7 +4,6 @@ import React from 'react';
 const withStateHandlers = (initialState, handlers) => (Component) => {
   return class extends React.Component {
     state = initialState;
-
     createHandlers(handlerObj) {
       // pass in an object that looks like { add: (state) => state.counter + 1 }, dynamically create handlers.
       const handlersWithState = Object.keys(handlerObj).map((k) => {
@@ -16,7 +15,7 @@ const withStateHandlers = (initialState, handlers) => (Component) => {
           },
         };
       });
-      // turn array back into flat object
+      // flatten into object.
       return Object.assign(...handlersWithState);
     }
 
