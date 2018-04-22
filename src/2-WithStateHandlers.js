@@ -33,12 +33,10 @@ const withStateHandlersCustom = (initialState, handlers) => (Component) => {
   };
 };
 
-
 export default withStateHandlersCustom(
   { counter: 0 },
   { add: ({ counter }) => ({ counter: counter + 1 }) },
 )(CounterStateless);
-
 
 /*
 Recompose implementation
@@ -50,16 +48,4 @@ Recompose implementation
 .
 .
 .
-//
-
-export default withStateHandlers(
-  ({ initialState = 0 }) => ({
-    counter: initialState,
-  }),
-  {
-    add: ({ counter }) => () => ({ counter: counter + 1 }),
-  },
-)(CounterStateless);
-
- *
- */
+*/
