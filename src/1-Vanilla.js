@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+/* boring vanilla counter using 'native state' */
 export class App extends Component {
   state = {
     counter: 0,
@@ -18,7 +19,7 @@ export class App extends Component {
 }
 
 /*
-higher order component example
+abstracting out the state handling logic and turnning it into an HOC
 */
 const withCounterState = (MyComponent) => {
   return class extends Component {
@@ -38,13 +39,16 @@ const withCounterState = (MyComponent) => {
   };
 };
 
-export const EnhancedCounter = withCounterState(({ counter, add }) => {
-  return (
-    <div>
-      <h1>counter: {counter}</h1>
-      <button onClick={add}>+</button>
-    </div>
-  );
-});
+// Counter as stateless component.
 
+export const CounterStateless = ({ counter, add }) => (
+  <div>
+    <h1>counter: {counter}</h1>
+    <button onClick={add}>+</button>
+  </div>
+);
+
+// use withCounterState to inject our state handling stuff into our stateless component
+
+export const EnhancedCounter = withCounterState(CounterStateless);
 export default EnhancedCounter;

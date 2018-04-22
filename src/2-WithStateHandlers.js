@@ -1,5 +1,6 @@
 import React from 'react';
-/* home-made implementation */
+/* Generic implementation of withStateHandlers */
+import { CounterStateless } from './1-Vanilla';
 
 const withStateHandlers = (initialState, handlers) => (Component) => {
   return class extends React.Component {
@@ -37,14 +38,28 @@ const handlers = {
     counter: counter + 1,
   }),
 };
+export default withStateHandlers(state, handlers)(CounterStateless);
 
-const Counter = ({ counter, add }) => {
-  return (
-    <div>
-      <h1>counter: {counter}</h1>
-      <button onClick={add}>+</button>
-    </div>
-  );
-};
 
-export default withStateHandlers(state, handlers)(Counter);
+/*
+.
+.
+.
+.
+.
+.
+.
+.
+
+import { withStateHandlers } from 'recompose';
+const withCounter = withStateHandlers(
+  ({ initialState = 0 }) => ({
+    counter: initialState,
+  }),
+  {
+    increment: ({ counter }) => () => ({ counter: counter + 1 }),
+  },
+);
+
+ *
+ */
