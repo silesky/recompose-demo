@@ -6,7 +6,7 @@ import WithStateHandlers from './2-WithStateHandlers';
 const Home = () => (
   <menu>
     <Link to="Vanilla">Vanilla</Link>
-    <Link to="WithStateHandlersCustom">WithStateHandlersCustom</Link>
+    <Link to="WithStateHandlers">WithStateHandlers</Link>
   </menu>
 );
 
@@ -15,7 +15,7 @@ const MyRoutes = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/Vanilla" component={Vanilla} />
-      <Route path="/WithStateHandlersCustom" component={WithStateHandlers} />
+      <Route path="/WithStateHandlers" component={WithStateHandlers} />
     </Switch>
   </main>
 );

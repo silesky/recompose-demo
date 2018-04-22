@@ -1,8 +1,9 @@
 import React from 'react';
 /* Generic implementation of withStateHandlers */
 import { CounterStateless } from './1-Vanilla';
+// import { withStateHandlers } from 'recompose';
 
-const withStateHandlers = (initialState, handlers) => (Component) => {
+const withStateHandlersCustom = (initialState, handlers) => (Component) => {
   return class extends React.Component {
     state = initialState;
     createHandlers(handlerObj) {
@@ -32,16 +33,15 @@ const withStateHandlers = (initialState, handlers) => (Component) => {
   };
 };
 
-const state = { counter: 0 };
-const handlers = {
-  add: ({ counter }) => ({
-    counter: counter + 1,
-  }),
-};
-export default withStateHandlers(state, handlers)(CounterStateless);
+
+export default withStateHandlersCustom(
+  { counter: 0 },
+  { add: ({ counter }) => ({ counter: counter + 1 }) },
+)(CounterStateless);
 
 
 /*
+Native implementation
 .
 .
 .
@@ -50,9 +50,9 @@ export default withStateHandlers(state, handlers)(CounterStateless);
 .
 .
 .
+//
 
-import { withStateHandlers } from 'recompose';
-const withCounter = withStateHandlers(
+ withStateHandlers(
   ({ initialState = 0 }) => ({
     counter: initialState,
   }),
