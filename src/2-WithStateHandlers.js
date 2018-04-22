@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStateHandlers } from 'recompose';
+// import { withStateHandlers } from 'recompose';
 /* Generic implementation of withStateHandlers */
 import { CounterStateless } from './1-Vanilla';
 
