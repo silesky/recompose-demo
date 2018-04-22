@@ -1,7 +1,7 @@
 import React from 'react';
+import { withStateHandlers } from 'recompose';
 /* Generic implementation of withStateHandlers */
 import { CounterStateless } from './1-Vanilla';
-// import { withStateHandlers } from 'recompose';
 
 const withStateHandlersCustom = (initialState, handlers) => (Component) => {
   return class extends React.Component {
@@ -41,7 +41,7 @@ export default withStateHandlersCustom(
 
 
 /*
-Native implementation
+Recompose implementation
 .
 .
 .
@@ -52,14 +52,14 @@ Native implementation
 .
 //
 
- withStateHandlers(
+export default withStateHandlers(
   ({ initialState = 0 }) => ({
     counter: initialState,
   }),
   {
-    increment: ({ counter }) => () => ({ counter: counter + 1 }),
+    add: ({ counter }) => () => ({ counter: counter + 1 }),
   },
-);
+)(CounterStateless);
 
  *
  */
