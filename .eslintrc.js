@@ -4,7 +4,7 @@ module.exports = {
     jest: true,
     browser: true,
     es6: true,
-    node: true,
+    node: false,
     commonjs: true,
   },
   parser: 'babel-eslint',

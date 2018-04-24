@@ -11,3 +11,5 @@ const withData = MyComponent =>
       <MyComponent {...this.props} data={this.state.data} />;
     }
   };
+
+export default withData;
