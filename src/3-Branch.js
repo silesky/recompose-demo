@@ -6,7 +6,7 @@ import {
   lifecycle,
   withStateHandlers,
 } from 'recompose';
-import { withCounterState, fetchDataFromApi } from './utils';
+import { withCounterState, fetchDataFromApi, Spinner } from './utils';
 
 const Counter = ({ counter, add }) => (
   <div>
@@ -31,7 +31,7 @@ const withLoadData = compose(
   // if data still loading, render 'loading' message
   branch(
     props => !props.data.length,
-    renderComponent(() => <h2>Loading....</h2>),
+    renderComponent(() => <Spinner />),
   ),
 );
 

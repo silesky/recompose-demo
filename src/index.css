@@ -20,3 +20,10 @@ menu a {
   text-align: center;
   padding: 20px 0;
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
