@@ -9,8 +9,8 @@ const Home = () => (
   <menu>
     <Link to="vanilla">vanilla</Link>
     <Link to="withStateHandlers">withStateHandlers</Link>
-    <Link to="Branch">Branch, Lifecycle, Compose</Link>
     <Link to="withReducer">withReducer</Link>
+    <Link to="Branch">Branch, Lifecycle, Compose</Link>
   </menu>
 );
 
