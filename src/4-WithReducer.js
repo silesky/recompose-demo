@@ -1,5 +1,5 @@
 import React from 'react';
-import { withReducer, compose } from 'recompose';
+import { withReducer, compose, mapProps } from 'recompose';
 
 const CounterStateless = ({ add, counter }) => (
   <div>
@@ -8,24 +8,23 @@ const CounterStateless = ({ add, counter }) => (
   </div>
 );
 
-export const withCounterReducer = withReducer(
-  'state',
-  'dispatch',
-  (state = { counter: 0 }, action) => {
-    switch (action.type) {
-      case 'ADD':
-        return { ...state, counter: state.counter + 1 };
-      default:
-        return state;
-    }
-  },
+export const withLogic = compose(
+  withReducer(
+    'state',
+    'dispatch',
+    (state = { counter: 0 }, action) => {
+      switch (action.type) {
+        case 'ADD':
+          return { ...state, counter: state.counter + 1 };
+        default:
+          return state;
+      }
+    },
+  ),
+  mapProps(({ state, dispatch }) => ({
+    add: () => dispatch({ type: 'ADD' }),
+    counter: state.counter,
+  })),
 );
-
-const withMappedProps = ({ state, dispatch }) => ({
-  add: () => dispatch({ type: 'ADD' }),
-  counter: state.counter,
-});
-
-const withLogic = compose(withCounterReducer, withMappedProps);
 
 export default withLogic(CounterStateless);
