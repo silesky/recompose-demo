@@ -6,7 +6,7 @@ import {
   lifecycle,
   withStateHandlers,
 } from 'recompose';
-import { withCounterState, fetchDataFromApi, Spinner } from './utils';
+import { withCounterState, fetchDataFromApi, Spinner } from '../utils';
 
 const Counter = ({ counter, add }) => (
   <div>

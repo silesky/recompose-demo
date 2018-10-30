@@ -1,5 +1,5 @@
 import React from 'react';
-// import { withStateHandlers } from 'recompose';
+import { withStateHandlers } from 'recompose';
 /* Generic implementation of withStateHandlers */
 import { CounterStateless } from './1-Vanilla';
 
@@ -33,10 +33,11 @@ const withStateHandlersCustom = (initialState, handlers) => (Component) => {
   };
 };
 
-export default withStateHandlersCustom(
-  { counter: 0 },
-  { add: ({ counter }) => ({ counter: counter + 1 }) },
+export default withStateHandlers(
+  { isOpen: true },
+  { handleOpen: ({ isOpen }) => (openStatus = !openStatus) => ({ isOpen: openStatus }) },
 )(CounterStateless);
+
 
 /*
 Recompose implementation

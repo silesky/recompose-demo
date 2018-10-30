@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchDataFromApi } from './utils';
+import { fetchDataFromApi } from './../utils';
 
 const withData = MyComponent =>
   class extends React {

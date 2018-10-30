@@ -9,6 +9,7 @@ module.exports = {
   },
   parser: 'babel-eslint',
   rules: {
+    'default-case': 0,
     /* standard */
     curly: 2, // require curly after if, unless one line.
     'max-len': 0, // taken care of by prettier
